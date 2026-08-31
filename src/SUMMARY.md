@@ -12,6 +12,7 @@
   - [Building the Kernel](./setup/kernel.md)
   - [Installing Applications](./setup/apps.md)
   - [Tockloader](./setup/tockloader.md)
+  - [Raspberry Pi Pico 2](./setup/pico2.md)
 
 - [Tock Course](./course/course.md)
 

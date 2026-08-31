@@ -30,6 +30,12 @@ development and new boards are added rapidly. You should definitely consult the
 board-specific README to see if there are any board-specific details you should
 be aware of.
 
+The Raspberry Pi Pico 2 is a common and inexpensive board that is not on that
+list, and it differs from all five in ways that are easy to mistake for a broken
+setup: no serial console over USB, no tockloader, and applications built into
+the kernel image. If that is your board, see
+[Raspberry Pi Pico 2](./setup/pico2.md).
+
 When you are ready to use your board, see the
 [hardware setup guide](./setup/hardware.md) for information on any needed setup
 to get the board working with your machine.
