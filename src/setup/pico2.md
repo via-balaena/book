@@ -30,10 +30,11 @@ tockloader target, so `tockloader listen`, `tockloader list` and
 section of [Hardware Setup](./hardware.md) does not apply here.
 
 **Applications are part of the kernel image.** On this board an application's
-TBF is copied into the kernel ELF's `.apps` section and the combined image is
-flashed, so loading an application means reflashing the kernel as well. The
-promise in [Installing Applications](./apps.md), that you can install one or
-more apps without having to update or re-flash the kernel, does not hold here.
+[TBF](../doc/tock_binary_format.md) is copied into the kernel ELF's `.apps`
+section and the combined image is flashed, so loading an application means
+reflashing the kernel as well. The promise in
+[Installing Applications](./apps.md), that you can install one or more apps
+without having to update or re-flash the kernel, does not hold here.
 
 **`make install` can do nothing and report success.**
 [Building the Kernel](./kernel.md) recommends `make install` as the way to load
