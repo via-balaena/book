@@ -79,9 +79,9 @@ $ make
 ```
 
 ```
-    Finished `release` profile [optimized + debuginfo] target(s) in 8.87s
+    Finished `release` profile [optimized + debuginfo] target(s) in 8.44s
    text	   data	    bss	    dec	    hex	filename
-  69164	      0	  19020	  88184	  15878	target/thumbv8m.main-none-eabi/release/raspberry_pi_pico_2
+  69164	      0	  19100	  88264	  158c8	target/thumbv8m.main-none-eabi/release/raspberry_pi_pico_2
 ```
 
 The kernel lands at
