@@ -121,11 +121,29 @@ $ cd tock/boards/raspberry_pi_pico_2
 $ make BOOTSEL_FOLDER=/Volumes/RP2350 flash
 ```
 
+**On a machine with no desktop, nothing mounts it for you.** A headless Linux
+box, a Pi being used as a flashing appliance for instance, runs no automounter,
+so those directories stay empty and the volume never appears at all. That reads
+as a board that failed to enumerate, and it is not. Find it by label and mount
+it yourself:
+
+```
+$ blkid | grep RP2350
+$ sudo mount /dev/sda1 /mnt/pico     # whatever device blkid named
+```
+
+Use `blkid` rather than `lsblk` here: `lsblk` leaves the LABEL column blank for
+this volume. Then pass that mount point as `BOOTSEL_FOLDER`.
+
 Naming it matters: with no `BOOTSEL_FOLDER` that finds the drive, `make flash`
 converts the kernel, skips the copy, and still exits successfully.
 
 The board reboots and the drive disappears as the copy lands, which is how you
-know it worked. The same thing by hand, if you would rather see the two steps:
+know it worked. If you mounted it by hand, expect the unmount to fail: the board
+resets the moment the file arrives, so the device is gone before `umount`
+finishes. That is the success case.
+
+`make flash` is doing two things; to run them yourself:
 
 ```
 $ picotool uf2 convert \
@@ -205,6 +223,7 @@ worth telling apart.
 
 | What you see                                                                  | What it means                                                                                                                                                                                        |
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The board is in BOOTSEL but no drive ever appears                             | On a headless Linux box nothing automounts it, so the mount directories stay empty. Find it with `blkid` and mount it yourself; `lsblk` shows its label blank.                                       |
 | `Please edit the BOOTSEL_FOLDER variable`, and the command exits with success | The kernel built and converted; the copy is the only step that did not happen. Set `BOOTSEL_FOLDER` to where the drive actually mounted.                                                             |
 | `Error: Can't find target/rp2350.cfg`                                         | Your OpenOCD predates RP2350 support. See [What you need](#what-you-need).                                                                                                                           |
 | `unable to find a matching CMSIS-DAP device`                                  | OpenOCD cannot see the probe. Try another USB cable first: a charge-only cable leaves the probe powered and invisible, which reads as a wiring fault.                                                |
