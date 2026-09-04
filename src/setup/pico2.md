@@ -128,7 +128,8 @@ as a board that failed to enumerate, and it is not. Find it by label and mount
 it yourself:
 
 ```
-$ blkid | grep RP2350
+$ sudo blkid | grep RP2350
+$ sudo mkdir -p /mnt/pico
 $ sudo mount /dev/sda1 /mnt/pico     # whatever device blkid named
 ```
 
