@@ -148,7 +148,7 @@ finishes. That is the success case.
 
 ```
 $ picotool uf2 convert \
-    target/thumbv8m.main-none-eabi/release/raspberry_pi_pico_2.elf tock.uf2
+    ../../target/thumbv8m.main-none-eabi/release/raspberry_pi_pico_2.elf tock.uf2
 $ cp tock.uf2 /Volumes/RP2350
 ```
 
