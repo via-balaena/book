@@ -196,19 +196,6 @@ A header row with nothing under it is the correct answer at this point: you have
 flashed a kernel and no applications. Getting any answer at all is the part that
 matters, because a reply is the only thing that proves the wire into the board.
 
-## Applications
-
-Applications are not installed separately on this board. An application's TBF is
-copied into the kernel ELF's `.apps` section and the combined image is flashed,
-so every application change reflashes the kernel too. Flash for applications is
-a fixed 256 kB region at `0x10040000`, declared in the board's `layout.ld`.
-
-The board's Makefile has `program` and `program-openocd` targets that do this,
-each taking `APP=<path to a .tbf>`; `program` copies a UF2 and so carries the
-same `BOOTSEL_FOLDER` requirement as `flash`. See the board's
-[README](https://github.com/tock/tock/tree/master/boards/raspberry_pi_pico_2)
-for the details.
-
 ## If your board is a Pico 2 W
 
 The Pico 2 W carries the same RP2350, and everything on this page works on it
