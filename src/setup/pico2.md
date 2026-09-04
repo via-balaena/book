@@ -173,8 +173,10 @@ tock$ list
 ```
 
 A header row with nothing under it is the correct answer at this point: you have
-flashed a kernel and no applications. Getting any answer at all is the part that
-matters, because a reply is the only thing that proves the wire into the board.
+flashed a kernel and no applications. Getting an answer at all is the part that
+matters, and the first one arrives before you press enter: the console echoes
+each character as you type it, so a single keystroke appearing on screen already
+proves the wire into the board.
 
 ## Where to go next
 
